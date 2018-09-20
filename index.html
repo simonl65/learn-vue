@@ -6,16 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learn VueJS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" integrity="sha256-zKA1Bf41O96+gJSlkn/Bh2HATW/OhwkApPlYTp3B5O8="
+        crossorigin="anonymous" />
     <style>
-    .unstyled-list {
-        list-style-type: none;
-    }
+        body { padding-top: 3rem; }
     </style>
 </head>
 
 <body>
-    <div id="root">
-        <task-list></task-list>
+
+    <div id="root" class="container">
+
+        <cd-message title="Hello World" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem."></cd-message>
+
+        <cd-message title="My new message">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum necessitatibus accusantium illum possimus repellat quam sunt alias numquam inventore illo aliquam, magni a corrupti accusamus voluptatum sed neque! Illo, voluptas.
+        </cd-message>
     </div>
 
     <!-- SCRIPTS -->

@@ -1,28 +1,19 @@
-Vue.component('task-list', {
+Vue.component('cd-message', {
+    props: ['title', 'body'],
+
     template: `
     <div>
-        <task-item v-for="task in tasks" :key="task.id">
-            <input :id="'task_' + task.id" type="checkbox" v-model="task.completed">
-            <label :for="'task_' + task.id">{{ task.description }}</label>
-        </task-item>
+        <article class="message">
+            <div class="message-header">
+                <p>{{ title }}</p>
+                <button @click="cd-close-message" class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                {{ body }}
+            </div>
+        </article>
     </div>
     `,
-
-    data() {
-        return {
-            tasks: [
-                { id: 1, description: "Do something Mutley!", completed: true },
-                { id: 2, description: "Catch that pidgeon", completed: false },
-                { id: 3, description: "Penelope Pitstop", completed: true },
-                { id: 4, description: "Dick Dastardly", completed: false },
-            ]
-        }
-    }
-});
-
-
-Vue.component('task-item', {
-    template: '<li class="unstyled-list"><slot></slot></li>',
 });
 
 
