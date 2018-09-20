@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn VueJS</title>
+</head>
+
+<body>
+    <div id="root">
+        <input type="text" name="input" id="input" v-model="message">
+        <p>The value of the input is: {{ message }}</p>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="/node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#root',
+
+            data: {
+                message: "Hi there!"
+            },
+
+            
+        });
+    </script>
+</body>
+
+</html>
