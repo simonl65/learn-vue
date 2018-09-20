@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learn VueJS</title>
+    <style>
+    .unstyled-list {
+        list-style-type: none;
+        margin-left: -1rem;
+    }
+    </style>
 </head>
 
 <body>
@@ -13,7 +19,10 @@
 
         <h1>All Tasks</h1>
         <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
+            <li v-for="task in tasks" class="unstyled-list">
+                <input :id="'task_' + task.id" type="checkbox" v-model="task.completed">
+                <label :for="'task_' + task.id">{{ task.description }}</label>
+            </li>
         </ul>
 
         <h1>Completed Tasks</h1>
@@ -39,12 +48,12 @@
                 message: "Hello World",
 
                 tasks: [
-                    { description: "Do something Mutley!", completed: false },
-                    { description: "Remember the milk", completed: true },
-                    { description: "Go home at the end of the day", completed: false },
-                    { description: "The Devil makes work for idle hands", completed: false },
-                    { description: "What is this Vue thing anyway?", completed: true },
-                    { description: "Catch that pidgeon", completed: false },
+                    { id: 1, description: "Do something Mutley!", completed: false },
+                    { id: 2, description: "Remember the milk", completed: true },
+                    { id: 3, description: "Go home at the end of the day", completed: false },
+                    { id: 4, description: "The Devil makes work for idle hands", completed: false },
+                    { id: 5, description: "What is this Vue thing anyway?", completed: true },
+                    { id: 6, description: "Catch that pidgeon", completed: false },
                 ],
             },
 
