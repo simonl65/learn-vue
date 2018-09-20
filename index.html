@@ -16,62 +16,15 @@
 
 <body>
     <div id="root">
-
-        <h1>All Tasks</h1>
-        <ul>
-            <li v-for="task in tasks" class="unstyled-list">
-                <input :id="'task_' + task.id" type="checkbox" v-model="task.completed">
-                <label :for="'task_' + task.id">{{ task.description }}</label>
-            </li>
-        </ul>
-
-        <h1>Completed Tasks</h1>
-        <ul>
-            <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
-        </ul>
-
-        <h1>Incomplete Tasks</h1>
-        <ul>
-            <li v-for="task in incompleteTasks" v-text="task.description"></li>
-        </ul>
-
+        <task>Task 1</task>
+        <task>Task 2</task>
+        <task>Task 3</task>
     </div>
 
     <!-- SCRIPTS -->
     <script src="/node_modules/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
 
-    <script>
-        const app = new Vue({
-            el: '#root',
-
-            data: {
-                message: "Hello World",
-
-                tasks: [
-                    { id: 1, description: "Do something Mutley!", completed: false },
-                    { id: 2, description: "Remember the milk", completed: true },
-                    { id: 3, description: "Go home at the end of the day", completed: false },
-                    { id: 4, description: "The Devil makes work for idle hands", completed: false },
-                    { id: 5, description: "What is this Vue thing anyway?", completed: true },
-                    { id: 6, description: "Catch that pidgeon", completed: false },
-                ],
-            },
-
-            computed: {
-                incompleteTasks() {
-                    return this.tasks.filter( (task) => ! task.completed );
-
-                    // ES5 version would be:
-                    // return this.tasks.filter( function (task) {
-                    //     return ! task.completed;
-                    // });
-                }
-            },
-
-            methods: {
-            },
-        });
-    </script>
 </body>
 
 </html>
