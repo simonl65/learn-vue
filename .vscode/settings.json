@@ -1,4 +1,9 @@
 {
     "gitflow4code.releases": [],
-    "gitflow4code.features": []
+    "gitflow4code.features": [
+        {
+            "name": "feature/06-Computed-Props",
+            "base": "develop"
+        }
+    ]
 }

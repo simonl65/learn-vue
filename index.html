@@ -6,14 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Learn VueJS</title>
+    <style>
+    .unstyled-list {
+        list-style-type: none;
+        margin-left: -1rem;
+    }
+    </style>
 </head>
 
 <body>
     <div id="root">
 
-        <button id="idToDisable" @click="disableMe">{{ btnText }}</button>
-        <br>
-        <button class="classToDisable" @click="disableMe" :disabled="disabledState">{{ btnText2 }}</button>
+        <h1>All Tasks</h1>
+        <ul>
+            <li v-for="task in tasks" class="unstyled-list">
+                <input :id="'task_' + task.id" type="checkbox" v-model="task.completed">
+                <label :for="'task_' + task.id">{{ task.description }}</label>
+            </li>
+        </ul>
+
+        <h1>Completed Tasks</h1>
+        <ul>
+            <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+        </ul>
+
+        <h1>Incomplete Tasks</h1>
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
 
     </div>
 
@@ -25,18 +45,30 @@
             el: '#root',
 
             data: {
-                btnText : "Disable Me!",
-                btnText2: "Disable Me Too!",
-                disabledState: false,
+                message: "Hello World",
+
+                tasks: [
+                    { id: 1, description: "Do something Mutley!", completed: false },
+                    { id: 2, description: "Remember the milk", completed: true },
+                    { id: 3, description: "Go home at the end of the day", completed: false },
+                    { id: 4, description: "The Devil makes work for idle hands", completed: false },
+                    { id: 5, description: "What is this Vue thing anyway?", completed: true },
+                    { id: 6, description: "Catch that pidgeon", completed: false },
+                ],
+            },
+
+            computed: {
+                incompleteTasks() {
+                    return this.tasks.filter( (task) => ! task.completed );
+
+                    // ES5 version would be:
+                    // return this.tasks.filter( function (task) {
+                    //     return ! task.completed;
+                    // });
+                }
             },
 
             methods: {
-                disableMe() {
-                    idToDisable.disabled = true,                           // Disables via ID
-                    this.disabledState   = true,
-                    this.btnText         = "You can't touch dis!",
-                    this.btnText2        = "You can't touch this either!"
-                }
             },
         });
     </script>
