@@ -11,9 +11,9 @@
 <body>
     <div id="root">
 
-        <button id="btnToDisable" @click="disableMe">{{ btnText }}</button>
+        <button id="idToDisable" @click="disableMe">{{ btnText }}</button>
         <br>
-        <button class="btnToDisable" @click="disableMe" :disabled="disabledThis">{{ btnText2 }}</button>
+        <button class="classToDisable" @click="disableMe" :disabled="disabledState">{{ btnText2 }}</button>
 
     </div>
 
@@ -27,14 +27,15 @@
             data: {
                 btnText : "Disable Me!",
                 btnText2: "Disable Me Too!",
+                disabledState: false,
             },
 
             methods: {
                 disableMe() {
-                    btnToDisable.disabled = true,
-                    this.disabledThis     = true,
-                    this.btnText          = "You can't touch dis!"
-                    this.btnText2         = "You can't touch this either!"
+                    idToDisable.disabled = true,                           // Disables via ID
+                    this.disabledState   = true,
+                    this.btnText         = "You can't touch dis!",
+                    this.btnText2        = "You can't touch this either!"
                 }
             },
         });
