@@ -1,5 +1,5 @@
 Vue.component('cd-message', {
-    props: ['title', 'body'],
+    props: ['title'],
 
     data() {
         return {
@@ -14,7 +14,7 @@ Vue.component('cd-message', {
             <button @click="cdCloseMessage" class="delete" aria-label="delete"></button>
         </div>
         <div class="message-body">
-            {{ body }}
+            <slot></slot>
         </div>
     </article>
     `,
