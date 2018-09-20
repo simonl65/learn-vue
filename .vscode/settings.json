@@ -1,9 +1,4 @@
 {
     "gitflow4code.releases": [],
-    "gitflow4code.features": [
-        {
-            "name": "feature/05-Attribute-and-Class-Binding",
-            "base": "develop"
-        }
-    ]
+    "gitflow4code.features": []
 }
