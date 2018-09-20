@@ -1,9 +1,4 @@
 {
     "gitflow4code.releases": [],
-    "gitflow4code.features": [
-        {
-            "name": "feature/07-Components-101",
-            "base": "develop"
-        }
-    ]
+    "gitflow4code.features": []
 }
