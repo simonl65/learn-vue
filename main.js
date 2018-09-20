@@ -1,19 +1,29 @@
 Vue.component('cd-message', {
     props: ['title', 'body'],
 
+    data() {
+        return {
+            isVisible: true,
+        }
+    },
+
     template: `
-    <div>
-        <article class="message">
-            <div class="message-header">
-                <p>{{ title }}</p>
-                <button @click="cd-close-message" class="delete" aria-label="delete"></button>
-            </div>
-            <div class="message-body">
-                {{ body }}
-            </div>
-        </article>
-    </div>
+    <article class="message" v-show="isVisible">
+        <div class="message-header">
+            <p>{{ title }}</p>
+            <button @click="cdCloseMessage" class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+            {{ body }}
+        </div>
+    </article>
     `,
+
+    methods: {
+        cdCloseMessage() {
+            this.isVisible = false;
+        }
+    }
 });
 
 
