@@ -11,6 +11,10 @@
 <body>
     <div id="root">
 
+        <h1>All Tasks</h1>
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
 
     </div>
 
@@ -22,6 +26,22 @@
             el: '#root',
 
             data: {
+                message: "Hello World",
+
+                tasks: [
+                    { description: "Do something Mutley!", completed: false },
+                    { description: "Remember the milk", completed: true },
+                    { description: "Go home at the end of the day", completed: false },
+                    { description: "The Devil makes work for idle hands", completed: false },
+                    { description: "What is this Vue thing anyway?", completed: true },
+                    { description: "Catch that pidgeon", completed: false },
+                ],
+            },
+
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                }
             },
 
             methods: {
