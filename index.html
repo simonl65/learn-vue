@@ -21,20 +21,7 @@
 
     <div id="root" class="container">
 
-        <h1 class="title">Parent-/Child-component Communication</h1>
-
-        <cd-coupon autofocus></cd-coupon>
-
-        <h2 v-if="couponWasApplied">You used a coupon</h2>
-        <hr>
-        <pre>
-<b>When &lt;cd-coupon&gt; field is blurred:</b>
-1. component's method: onBlur() is called
-2. onBlur() does it's thing (e.g. AJAX call), then...
-3. ...emits the @applied event
-4. parent (&lt;coupon&gt;) receives event and calls onCouponApplied()
-5. Vue instance method "onCouponApplied()" sends alert()
-        </pre>
+        <h1 class="title">Named Slots in a Nutshell</h1>
 
     </div>
 
