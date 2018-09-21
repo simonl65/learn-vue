@@ -22,11 +22,12 @@
     <div id="root" class="container">
 
         <cd-coupon @applied="onCouponApplied" autofocus></cd-coupon>
+        <h2 v-if="couponWasApplied">You used a coupon</h2>
         <hr>
         <pre>
 When &lt;cd-coupon&gt; field is blurred:
-1. component's onCouponAppliedLOCAL() is called
-2. onCouponAppliedLOCAL() does it's thing (e.g. AJAX call), then...
+1. component's method: onBlur() is called
+2. onBlur() does it's thing (e.g. AJAX call), then...
 3. ...emits the @applied event
 4. parent (&lt;coupon&gt;) receives event and calls onCouponApplied()
 5. Vue instance method "onCouponApplied()" sends alert()
