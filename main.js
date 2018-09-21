@@ -1,8 +1,10 @@
+window.Event = new Vue();
+
 Vue.component('cd-coupon', {
     methods: {
         onBlur() {
             // Make AJAX call, etc, then emit the 'applied' event...
-            this.$emit('applied', { status: 200, data: 'valid coupon' });
+            Event.$emit('applied');
         }
     },
 
@@ -17,10 +19,7 @@ new Vue({
         couponWasApplied: false,
     },
 
-    methods: {
-        onCouponApplied() {
-            this.couponWasApplied = true;
-            console.log('couponWasApplied:', this.couponWasApplied);
-        }
+    created() {
+        Event.$on( 'applied', () => console.log('I got it!') );
     }
 });
