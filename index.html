@@ -8,8 +8,12 @@
     <title>Learn VueJS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css" integrity="sha256-zKA1Bf41O96+gJSlkn/Bh2HATW/OhwkApPlYTp3B5O8="
         crossorigin="anonymous" />
+
     <style>
-        body { padding-top: 3rem; }
+        body {
+            padding-top: 3rem;
+        }
+
     </style>
 </head>
 
@@ -17,15 +21,19 @@
 
     <div id="root" class="container">
 
-        <cd-message title="Hello World">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-        </cd-message>
+        <button id="showModal" @click="showModal = true">Show Modal</button>
+        
+        <!--
+            NOTE: The event listener name (@close-modal) MUST be lower-case ;)
+        -->
+        <cd-modal v-if="showModal" @close-modal="showModal = false">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus aperiam explicabo. Ab, odio
+                deserunt assumenda mollitia quis quam suscipit ad? Soluta quod nostrum itaque, debitis sequi
+                repudiandae quidem dolorum eius, eos molestiae minima explicabo quas, ex eligendi earum maxime.
+            </p>
+        </cd-modal>
 
-        <cd-message title="DANGER:" >&lt;script>alert('Haxd you!');</script> - woulda Gotcha!</cd-message>
-
-        <cd-message title="My new message">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum necessitatibus accusantium illum possimus repellat quam sunt alias numquam inventore illo aliquam, magni a corrupti accusamus voluptatum sed neque! Illo, voluptas.
-        </cd-message>
     </div>
 
     <!-- SCRIPTS -->

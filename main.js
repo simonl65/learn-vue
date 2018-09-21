@@ -1,32 +1,25 @@
-Vue.component('cd-message', {
-    props: ['title'],
-
-    data() {
-        return {
-            isVisible: true,
-        }
-    },
-
+Vue.component('cd-modal', {
     template: `
-    <article class="message" v-show="isVisible">
-        <div class="message-header">
-            <p>{{ title }}</p>
-            <button @click="cdCloseMessage" class="delete" aria-label="delete"></button>
-        </div>
-        <div class="message-body">
-            <slot></slot>
-        </div>
-    </article>
-    `,
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <slot></slot>
+                </div>
+            </div>
 
-    methods: {
-        cdCloseMessage() {
-            this.isVisible = false;
-        }
-    }
+            <button class="modal-close is-large" @click="$emit('close-modal')" aria-label="close"></button>
+        </div>
+    `
 });
 
 
 new Vue({
     el: '#root',
+
+    data: {
+        showModal: false
+    },
+
+
 });
