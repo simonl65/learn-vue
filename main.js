@@ -33,7 +33,7 @@ Vue.component('cd-tabs', {
 });
 
 
-Vue.component('tab', {
+Vue.component('cd-tab', {
     props: {
         name: { required: true, type: String },
         selected: { default: false, type: Boolean }
